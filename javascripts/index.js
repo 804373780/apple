@@ -1,0 +1,31 @@
+$(function(){
+    $(".pointer_open").on("click",function(){
+        $(".small_nav").slideDown(1000);
+        $(".nav").hide();
+        $(".banner").hide();
+        $(".list").hide();
+        $(".footer").hide();
+    })
+    $(".pointer_close").on("click",function(){
+        $(".small_nav").slideUp(1000);
+        $(".nav").show();
+        $(".banner").show();
+        $(".list").show();
+        $(".footer").show();
+    })
+    $(".pointer_left").mouseover(function(){
+        $(this).find(".pointer_button").fadeIn();
+    })
+    $(".pointer_left").mouseout(function(){
+        $(this).find(".pointer_button").fadeOut();
+    })
+    $(".pointer_right").mouseover(function(){
+        $(this).find(".pointer_button").fadeIn();
+    })
+    $(".pointer_right").mouseout(function(){
+        $(this).find(".pointer_button").fadeOut();
+    })
+    $(".inner-list-item-title").click(function(){
+        $(this).next("ul").toggle(500);
+    })
+})
