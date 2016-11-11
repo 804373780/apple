@@ -189,9 +189,11 @@
   }
   .first {
     background: url(../img/event_medium.jpg) no-repeat 50% 40%;
+    background-size: cover;
+    background-position: center center;
   }
   .second {
-    background: url(../img/macbookpro_medium.jpg) no-repeat 50% 40%;
+    background: url(../img/macbookpro_medium.jpg) no-repeat 40% 30%;
   }
   .third {
     background: url(../img/iphone_large.jpg) no-repeat 50% 40%;
@@ -313,8 +315,13 @@
     background-repeat: no-repeat;
     background-image: url(../img/nike_watch_large.jpg);
   }
+  /*.second {*/
+    /*background: url(../img/macbookpro_xlarge.jpg) no-repeat center center;*/
+  /*}*/
   .third {
-    background: url(../img/iphone_large.jpg) no-repeat 100% 60%;
+    background: url(../img/iphone_large.jpg) no-repeat center bottom;
+    background-size:contain;
+    background-color: #000;
   }
   .promo-airpods {
     background-size: 100% 200px;
