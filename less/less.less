@@ -1,0 +1,186 @@
+@import "var.less";
+*{
+  box-sizing: border-box;
+}
+/*小屏的时候*/
+.container{
+  &{
+     width:@num1*1-@minWidth;
+     margin: auto;
+  }
+  &>.row{
+    width:100%;
+    .clear;
+  }
+  &-fluid{
+    width:100%;margin:auto;
+  }
+  &-fluid>.row{
+    width:100%;
+    .clear;
+  }
+
+}
+/*最小屏*/
+
+.loop();
+
+.col-s-hide{
+  display: none;
+}
+.promo-nike-watch {
+  background-size: 736px 200px;
+  background-repeat: no-repeat;
+  background-image: url(../img/nike_watch_small.jpg);
+}
+.promo-airpods {
+  background-size: 736px 200px;
+  background-repeat: no-repeat;
+  background-image: url(../img/airpods_small.jpg);
+}
+.promo-iphone-upgrade {
+  background-size: 736px 200px;
+  background-repeat: no-repeat;
+  background-image: url(../img/iphone_upgrade_small.jpg);
+}
+.promo-accessibility {
+  background-size: 736px 200px;
+  background-repeat: no-repeat;
+  background-image: url(../img/accessibility_small.jpg);
+}
+.first{
+  background:url(../img/event_small.jpg)no-repeat 50% 40%;
+}
+.second{
+  background:url(../img/macbookpro_small.jpg)no-repeat 50% 40%;
+}
+.third{
+  background:url(../img/iphone_large.jpg)no-repeat 50% 40%;
+}
+
+/*中屏*/
+
+@media screen and (min-width: @num1){
+  .container{
+      width:@num1;
+      margin: auto;
+    }
+  .promo-nike-watch {
+    background-size: 640px 200px;
+    background-repeat: no-repeat;
+    background-image: url(../img/nike_watch_medium.jpg);
+  }
+  .promo-airpods {
+    background-size: 640px 200px;
+    background-repeat: no-repeat;
+    background-image: url(../img/airpods_medium.jpg);
+  }
+  .promo-iphone-upgrade {
+    background-size: 640px 200px;
+    background-repeat: no-repeat;
+    background-image: url(../img/iphone_upgrade_medium.jpg);
+  }
+  .promo-accessibility {
+    background-size: 640px 200px;
+    background-repeat: no-repeat;
+    background-image: url(../img/accessibility_medium.jpg);
+  }
+  .first{
+    background:url(../img/event_medium.jpg)no-repeat 50% 40%;
+  }
+  .second{
+    background:url(../img/macbookpro_medium.jpg)no-repeat 50% 40%;
+  }
+  .third{
+    background:url(../img/iphone_large.jpg)no-repeat 50% 40%;
+  }
+
+ .loop(m);
+  .col-s-hide{
+    display: block;
+  }
+  .col-l-hide{
+    display: block;
+  }
+  .col-m-hide{
+    display: none;
+  }
+}
+
+/*大屏*/
+@media screen and (min-width: @num2){
+  .container{
+    width:@num2;
+    margin: auto;
+  }
+  .promo-nike-watch {
+    background-size: 100% 200px;
+    background-repeat: no-repeat;
+    background-image: url(../img/nike_watch_large.jpg);
+  }
+  //.first{
+  //  background:url(../img/event_large.jpg)no-repeat 50% 40%;
+  //}
+  //.second{
+  //  background:url(../img/macbookpro_large.jpg)no-repeat center center;
+  //}
+  .third{
+    background:url(../img/iphone_large.jpg)no-repeat 100% 60%;
+  }
+  .promo-airpods {
+    background-size: 100% 200px;
+    background-repeat: no-repeat;
+    background-image: url(../img/airpods_large.jpg);
+  }
+  .promo-iphone-upgrade {
+    background-size: 100% 200px;
+    background-repeat: no-repeat;
+    background-image: url(../img/iphone_upgrade_large.jpg);
+  }
+  .promo-accessibility {
+    background-size: 100% 200px;
+    background-repeat: no-repeat;
+    background-image: url(../img/accessibility_large.jpg);
+  }
+  .loop(l);
+  .col-s-hide{
+    display: block;
+  }
+  .col-m-hide{
+    display: block;
+  }
+  .col-l-hide{
+    display: none;
+  }
+}
+//栅格化的核心代码
+.loop(@type:s,@i:1) when (@i<=@cols){
+  .container>.row>.col-@{type}-@{i}{
+    float:left;
+    width:@i/@cols*100%;
+  }
+  .container-fluid>.row>.col-@{type}-@{i}{
+    float:left;
+    width:@i/@cols*100%;
+  }
+  .loop(@type,@i+1);
+}
+a[class*=col]{
+  height:100%;
+  width:100%;
+}
+li[class*=col]{
+  height:200px;
+  border:1px solid #fff;
+}
+
+/*清除浮动*/
+.clear(){
+  &:before,&:after{
+    content: "";
+    display: block;
+  }
+  &:after{
+    clear:both;
+  }
+}
